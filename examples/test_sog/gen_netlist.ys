@@ -1,0 +1,29 @@
+
+design -reset
+
+read_verilog -defer -sv ./design.sv
+### Add more sv: read_verilog -sv ../example/verilog/TinyRocket/chipyard.TestHarness.TinyRocketConfig.top.sv
+
+# elaborate design hierarchy
+hierarchy -check -top jFIFO
+
+# the high-level stuff
+proc; opt;
+flatten; opt;
+fsm; opt;
+alumacc; share; opt;
+memory; opt
+
+# mapping to internal cell library
+techmap; opt
+
+dfflibmap -liberty ./NangateOpenCellLibrary_typical.lib
+
+# mapping logic to mycells.lib
+abc -liberty ./NangateOpenCellLibrary_typical.lib
+
+# cleanup
+clean
+
+# Generate netlist
+write_verilog ./design_jFIFO_netlist.sv
