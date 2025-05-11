@@ -55,3 +55,4 @@ __pycache__
 /boost
 /ffi
 /*.whl
+**/syn_out
