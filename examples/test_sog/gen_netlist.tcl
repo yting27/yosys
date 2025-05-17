@@ -4,11 +4,18 @@
 
 # Cmd: yosys -c ./gen_netlist.tcl
 
+## SET variables HERE!!!
 set work_dir "/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog"
-set lr_synth_out_dir "$work_dir/syn_out/ibex_11_05_2025_18_08_31"
+set lr_synth_out_dir $env(LR_SYNTH_OUT_DIR) ;#"ibex_11_05_2025_18_08_31"
 set top_module "ibex_top"
-set lr_synth_cell_library_path "/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog/NangateOpenCellLibrary_typical.lib"
+set lr_synth_cell_library_path $env(LR_SYNTH_CELL_LIBRARY_PATH) ;# "/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog/NangateOpenCellLibrary_typical.lib"
 set lr_synth_netlist_out "/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog/ibex_top_netlist.v"
+
+puts "work_dir: $work_dir"
+puts "lr_synth_out_dir: $lr_synth_out_dir"
+puts "top_module: $top_module"
+puts "lr_synth_cell_library_path: $lr_synth_cell_library_path"
+puts "lr_synth_netlist_out: $lr_synth_netlist_out"
 
 # Execute synthesis
 yosys "design -reset"

@@ -61,6 +61,8 @@ for file in $IBEX_ROOT_DIR/rtl/*.sv; do
       continue
   fi
 
+  echo "Converting $file to Verilog"
+
   sv2v \
     --define=SYNTHESIS --define=YOSYS \
     $IBEX_ROOT_DIR/rtl/*_pkg.sv \
@@ -79,6 +81,9 @@ done
 
 # remove tracer (not needed for synthesis)
 rm -f "$LR_SYNTH_OUT_DIR"/generated/ibex_tracer.v
+
+# Run synthesis to generate the netlist
+yosys -c ./gen_netlist.tcl
 
 # # remove the FPGA & register-based register file (because we will use the
 # # latch-based one instead)

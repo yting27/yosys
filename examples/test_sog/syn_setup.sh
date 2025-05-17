@@ -20,6 +20,7 @@ export LR_SYNTH_FLATTEN=1
 
 # SETUP CELL LIBRARY PATH
 # Uncomment the lines below and set the path to an appropriate .lib file
-export LR_SYNTH_CELL_LIBRARY_PATH=/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog/NangateOpenCellLibrary_typical.lib
+# export LR_SYNTH_CELL_LIBRARY_PATH=/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog/NangateOpenCellLibrary_typical.lib
+export LR_SYNTH_CELL_LIBRARY_PATH=/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog/merged.lib
 export LR_SYNTH_CELL_LIBRARY_NAME=nangate
 export IBEX_ROOT_DIR=/mnt/c/Users/ngyen/Documents/Projects/rtl_projects/yosys/examples/test_sog/ibex
